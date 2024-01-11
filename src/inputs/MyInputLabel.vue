@@ -1,5 +1,5 @@
 <template>
-  <label v-bind:for="$attrs.id">{{ text }}</label>
+  <label v-bind:for="($attrs.id as string)">{{ text }}</label>
 </template>
 
 <script setup lang="ts">

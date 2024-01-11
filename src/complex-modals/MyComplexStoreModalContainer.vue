@@ -25,7 +25,8 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { ModalInfo, useComplexModalStore } from "@/complex-modals/store";
+import type { ModalInfo } from "@/complex-modals/store";
+import { useComplexModalStore } from "@/complex-modals/store";
 import MyComplexStoreModal from "@/complex-modals/MyComplexStoreModal.vue";
 
 const complexModalStore = useComplexModalStore();
@@ -39,18 +40,14 @@ function handleClickaway(modal: ModalInfo) {
 function handleCancel(modal: ModalInfo) {
   if (modal.cancel) {
     modal.cancel.handler();
-    if (modal.cancel.closeAfterHandler) {
-      closeModal(modal);
-    }
+    closeModal(modal);
   }
 }
 
 function handleContinue(modal: ModalInfo) {
   if (modal.continue) {
     modal.continue.handler();
-    if (modal.continue.closeAfterHandler) {
-      closeModal(modal);
-    }
+    closeModal(modal);
   }
 }
 </script>

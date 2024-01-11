@@ -30,7 +30,7 @@ const dropdownVisible = ref(false);
 const nestedDropdownVisible = ref(false);
 
 function toggleDropdown() {
-  dropdownVisible.value = !dropdownVisible.inputValue;
+  dropdownVisible.value = !dropdownVisible.value;
 }
 
 function hideDropdown() {
@@ -38,7 +38,7 @@ function hideDropdown() {
 }
 
 function toggleNestedDropdown() {
-  nestedDropdownVisible.value = !nestedDropdownVisible.inputValue;
+  nestedDropdownVisible.value = !nestedDropdownVisible.value;
 }
 
 function hideNestedDropdown() {

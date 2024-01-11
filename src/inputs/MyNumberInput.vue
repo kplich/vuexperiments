@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper-main">
     <div class="" :class="['wrapper-intermediate', intermediateWrapperClass]">
-      <label ref="labelRef" v-bind:for="$attrs.id">
+      <label ref="labelRef" :for="($attrs.id as string)">
         {{ label }}
       </label>
       <input
         type="number"
-        v-bind:id="$attrs.id"
+        :id="($attrs.id as string)"
         :value="modelValue"
         @input="handleInputChange"
         @focus="validateNewInputValue($event)"
@@ -49,15 +49,15 @@ const labelRef = ref<HTMLLabelElement | null>(null);
 
 const validationResult = ref<string | null>(null);
 
-function handleInputChange(event: InputEvent) {
-  const newValue = parseFloat((event.target as HTMLInputElement).inputValue);
+function handleInputChange(event: Event) {
+  const newValue = parseFloat((event.target as HTMLInputElement).value);
 
   emit("update:modelValue", newValue);
   validateNewInputValue(event);
 }
 
 function validateNewInputValue(event: Event) {
-  const newValue = parseFloat((event.target as HTMLInputElement).inputValue);
+  const newValue = parseFloat((event.target as HTMLInputElement).value);
 
   if (props.validators.length > 0) {
     const validationResults = props.validators.map((v) => v(newValue));
@@ -71,12 +71,12 @@ function validateNewInputValue(event: Event) {
 }
 
 const showHelperText = computed(() => {
-  return (props.helperText && !props.modelValue) || validationResult.inputValue;
+  return (props.helperText && !props.modelValue) || validationResult.value;
 });
 
 const helperTextContent = computed(() => {
-  if (validationResult.inputValue) {
-    return validationResult.inputValue;
+  if (validationResult.value) {
+    return validationResult.value;
   } else {
     return props.helperText;
   }
@@ -99,12 +99,10 @@ const additionalHelperTextStyles = computed(() => {
     return {};
   }
 
-  if (!labelRef.inputValue) {
-    return {};
-  }
-
   return {
-    "padding-left": `${labelRef.inputValue.getBoundingClientRect().width + 5 * 2}px`,
+    "padding-left": `${
+      (labelRef?.value?.getBoundingClientRect()?.width ?? 0) + 5 * 2
+    }px`,
   };
 });
 </script>

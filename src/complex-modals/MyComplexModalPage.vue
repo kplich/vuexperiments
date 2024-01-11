@@ -32,7 +32,8 @@
 <script setup lang="ts">
 import MyComplexTeleportModal from "@/complex-modals/MyComplexTeleportModal.vue";
 import { ref } from "vue";
-import { ModalInfo, useComplexModalStore } from "@/complex-modals/store";
+import type { ModalInfo } from "@/complex-modals/store";
+import { useComplexModalStore } from "@/complex-modals/store";
 
 const { openModal, closeModal } = useComplexModalStore();
 

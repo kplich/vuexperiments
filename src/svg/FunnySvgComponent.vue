@@ -19,7 +19,11 @@
     </template>
 
     <path
-      :d="`M ${draggableXPositionRef} ${draggableYPositionRef} H ${pixelSize - draggableXPositionRef} V ${pixelSize - draggableYPositionRef} H ${draggableXPositionRef} V ${draggableYPositionRef}`"
+      :d="`M ${draggableXPositionRef} ${draggableYPositionRef} H ${
+        pixelSize - draggableXPositionRef
+      } V ${
+        pixelSize - draggableYPositionRef
+      } H ${draggableXPositionRef} V ${draggableYPositionRef}`"
       fill="transparent"
       stroke="black"
     />
@@ -69,27 +73,27 @@ const pixelSize = computed(() => {
   }
 });
 
-const circle = ref(null);
+const circle = ref<SVGElement | null>(null);
 const draggableXPositionRef = ref(10);
 const draggableYPositionRef = ref(10);
 const dragOffsetXRef = ref<number | null>(null);
 const dragOffsetYRef = ref<number | null>(null);
 
-function move({ offsetX, offsetY }) {
-  draggableXPositionRef.value = offsetX - dragOffsetXRef.value;
-  draggableYPositionRef.value = offsetY - dragOffsetYRef.value;
+function move({ offsetX, offsetY }: MouseEvent) {
+  draggableXPositionRef.value = offsetX - (dragOffsetXRef?.value ?? 0);
+  draggableYPositionRef.value = offsetY - (dragOffsetYRef?.value ?? 0);
 }
 
-function startDragging({ offsetX, offsetY }) {
+function startDragging({ offsetX, offsetY }: MouseEvent) {
   dragOffsetXRef.value = offsetX - draggableXPositionRef.value;
   dragOffsetYRef.value = offsetY - draggableYPositionRef.value;
-  circle.value.addEventListener("mousemove", move);
+  circle?.value?.addEventListener("mousemove", move);
 }
 
 function finishDragging() {
   dragOffsetXRef.value = null;
   dragOffsetYRef.value = null;
-  circle.value.removeEventListener("mousemove", move);
+  circle?.value?.removeEventListener("mousemove", move);
 }
 </script>
 
