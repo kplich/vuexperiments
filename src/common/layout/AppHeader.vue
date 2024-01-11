@@ -2,7 +2,7 @@
 
 <template>
   <header id="header">
-    <h1>My Vue App</h1>
+    <h1>Vuexperiments</h1>
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/dropdowns">Dropdowns</RouterLink>
