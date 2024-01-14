@@ -33,10 +33,9 @@ function loadUsers() {
 }
 
 function handleScroll(event: Event) {
-  const { scrollHeight, scrollTop, offsetHeight } =
-    event.target as HTMLDivElement;
+  const { scrollHeight, scrollTop, clientHeight } = event.target as HTMLElement;
 
-  const atTheBottom = scrollHeight - scrollTop <= offsetHeight;
+  const atTheBottom = scrollHeight - scrollTop <= clientHeight;
   console.log("at the bottom?", atTheBottom);
   if (atTheBottom) {
     loadUsers();
