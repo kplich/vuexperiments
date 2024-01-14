@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <header id="header">
     <h1>Vuexperiments</h1>
@@ -12,11 +10,18 @@
       <RouterLink to="/selects">Selects</RouterLink>
       <RouterLink to="/svg">SVG</RouterLink>
       <RouterLink to="/drag-and-drop">Drag and drop</RouterLink>
+      <RouterLink to="/infinite-scroll">Infinite scroll</RouterLink>
     </nav>
   </header>
 </template>
 
+<script setup lang="ts"></script>
+
 <style scoped>
+header {
+  margin-bottom: 2rem;
+}
+
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
