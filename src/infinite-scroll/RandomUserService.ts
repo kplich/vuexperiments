@@ -1,3 +1,5 @@
+import type { User } from "@/infinite-scroll/User";
+
 export function getRandomUsers(x: number = 10) {
   return new Promise<User[]>((resolve, reject) => {
     setTimeout(() => {
