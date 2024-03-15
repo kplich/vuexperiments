@@ -13,7 +13,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
-import AppSpinner from "@/common/AppSpinner.vue";
+import AppSpinner from "@/common/VSpinner.vue";
 import InfiniteScrollItem from "@/infinite-scroll/InfiniteScrollItem.vue";
 import { getRandomUsers } from "@/infinite-scroll/RandomUserService";
 import type { User } from "@/infinite-scroll/User";

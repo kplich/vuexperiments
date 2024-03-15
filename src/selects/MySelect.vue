@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { useInput } from "@/inputs/InputUtils";
 import MyTextInput from "@/inputs/MyTextInput.vue";
-import Dropdown from "@/dropdowns/Dropdown.vue";
+import Dropdown from "@/dropdowns/VDropdown.vue";
 import DropdownItem from "@/dropdowns/DropdownItem.vue";
 import { useDropdown } from "@/dropdowns/DropdownUtils";
 

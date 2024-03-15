@@ -1,69 +1,81 @@
 <template>
   <section>
-    <div>This is a dropdown page.</div>
-    <div>
-      <button @click="toggleDropdown">Click me to open a dropdown.</button>
-      <Dropdown v-if="dropdownVisible" @clickaway="hideDropdown">
-        <DropdownItem @click="printItem1">item 1</DropdownItem>
-        <DropdownItem @click="printItem2">item 2</DropdownItem>
-        <DropdownItem @click="toggleNestedDropdown">
-          <span>Nested dropdown.</span>
-          <Dropdown
-            v-if="nestedDropdownVisible"
-            @clickaway="hideNestedDropdown"
-          >
-            <DropdownItem @click="printNestedItem1">nested item 1</DropdownItem>
-            <DropdownItem @click="printNestedItem2">nested item 2</DropdownItem>
-          </Dropdown>
-        </DropdownItem>
-      </Dropdown>
+    <h2>Dropdowns, menus and selections!</h2>
+    <div class="buttons">
+      <VDropdown>
+        <template v-slot:button="{ show }">
+          <VButton @click="show">Click me to open a dropdown!</VButton>
+        </template>
+        <template v-slot:content>
+          <VCard size="small">
+            <span>This is a dropdown!</span>
+            <MyTextInput
+              :id="inputId"
+              label-text="An input in a dropdown!"
+              helper-text="Amazing!"
+              v-model:input-state="input"
+            />
+          </VCard>
+        </template>
+      </VDropdown>
+
+      <VDropdown>
+        <template v-slot:button="{ show }">
+          <VButton @click="show">Click me to open a menu!</VButton>
+        </template>
+        <template v-slot:content="{ hide }">
+          <VMenu>
+            <VMenuItem>Hello world!</VMenuItem>
+            <VMenuItem>This is a menu!</VMenuItem>
+            <VMenuItem>
+              It even supports...
+              <VMenu>
+                <VMenuItem>multi-level</VMenuItem>
+                <VMenuItem :disabled="true">menus!</VMenuItem>
+                <VMenuItem>
+                  It really does!
+                  <VMenu>
+                    <VMenuItem disabled>Look!</VMenuItem>
+                    <VMenuItem>A third level item!</VMenuItem>
+                  </VMenu>
+                </VMenuItem>
+              </VMenu>
+            </VMenuItem>
+            <VMenuItem @click="hide()"> Click and hide me! </VMenuItem>
+            <VMenuItem @click="hide(openModal)">
+              I'll show you a modal!
+            </VMenuItem>
+          </VMenu>
+        </template>
+      </VDropdown>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import DropdownItem from "@/dropdowns/DropdownItem.vue";
-import { ref } from "vue";
-import Dropdown from "@/dropdowns/Dropdown.vue";
+import VButton from "@/common/VButton.vue";
+import VMenu from "@/dropdowns/VMenu.vue";
+import MyTextInput from "@/inputs/MyTextInput.vue";
+import { useInput } from "@/inputs/InputUtils";
+import VMenuItem from "@/dropdowns/VMenuItem.vue";
+import VDropdown from "@/dropdowns/VDropdown.vue";
+import VCard from "@/common/VCard.vue";
+import { useModalStore } from "@/modals/store";
 
-const dropdownVisible = ref(false);
-const nestedDropdownVisible = ref(false);
+const inputId = "input";
+const input = useInput<string>(inputId, "");
 
-function toggleDropdown() {
-  dropdownVisible.value = !dropdownVisible.value;
-}
+const { setModalProps } = useModalStore();
 
-function hideDropdown() {
-  dropdownVisible.value = false;
-}
-
-function toggleNestedDropdown() {
-  nestedDropdownVisible.value = !nestedDropdownVisible.value;
-}
-
-function hideNestedDropdown() {
-  nestedDropdownVisible.value = false;
-}
-
-function printItem1() {
-  console.log("item1");
-  dropdownVisible.value = false;
-}
-
-function printItem2() {
-  console.log("item2");
-  dropdownVisible.value = false;
-}
-
-function printNestedItem1() {
-  console.log("nested item 1");
-  dropdownVisible.value = false;
-}
-
-function printNestedItem2() {
-  console.log("nested item 2");
-  dropdownVisible.value = false;
+function openModal() {
+  setModalProps("Amazing!", "This menu can do everything!");
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--space-5);
+}
+</style>

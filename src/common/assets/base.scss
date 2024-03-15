@@ -21,6 +21,27 @@
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 }
 
+:root {
+  --space-0: 4px;
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 20px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 80px;
+  --space-11: 120px;
+  --space-12: 160px;
+}
+
+:root {
+  --menu-padding: var(--space-3);
+  --menu-padding-half: var(--space-1);
+}
+
 /* semantic color variables for this project */
 :root {
   --color-background: var(--vt-c-white);
@@ -32,8 +53,10 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
+  --color-text-soft: var(--vt-c-text-light-2);
+  --color-text-contrast: var(--vt-c-white);
 
-  --section-gap: 160px;
+  --section-gap: var(--space-12);
 }
 
 @media (prefers-color-scheme: dark) {

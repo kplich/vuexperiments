@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-import AppHeader from "./layout/AppHeader.vue";
+import AppHeader from "./layout/VHeader.vue";
 import MyStoreModalContainer from "@/modals/MyStoreModalContainer.vue";
 import MyTeleportModalContainer from "@/modals/MyTeleportModalContainer.vue";
 import MyComplexTeleportModalContainer from "@/complex-modals/MyComplexTeleportModalContainer.vue";

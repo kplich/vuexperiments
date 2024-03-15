@@ -30,8 +30,8 @@ function emitClickaway(click: Event) {
 <style scoped lang="scss">
 .modal {
   z-index: 999;
-  padding: 20px;
-  border-radius: 20px;
+  padding: 30px;
+  border-radius: 30px;
 
   background: var(--color-background-soft);
   box-shadow: 2px 2px 2px black;
