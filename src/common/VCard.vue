@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-type CardSize = "none" | "small" | "medium" | "big";
+type CardSize = "small" | "medium" | "big";
 
 interface Props {
   size?: CardSize;

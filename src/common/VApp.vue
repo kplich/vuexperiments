@@ -1,6 +1,8 @@
 <template>
   <AppHeader />
-  <RouterView />
+  <div class="router-container">
+    <RouterView />
+  </div>
   <MyStoreModalContainer />
   <MyTeleportModalContainer />
   <MyComplexTeleportModalContainer />
@@ -16,4 +18,8 @@ import MyComplexTeleportModalContainer from "@/complex-modals/MyComplexTeleportM
 import MyComplexStoreModalContainer from "@/complex-modals/MyComplexStoreModalContainer.vue";
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.router-container {
+  width: 100%;
+}
+</style>

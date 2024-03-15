@@ -10,7 +10,7 @@
         v-model:input-state="textInputState"
         :validators="[required('text'), minLength(3, 'text')]"
       />
-      <pre>{{ JSON.stringify(textInputState.validationResults) }}</pre>
+      <span>{{ JSON.stringify(textInputState.validationResults) }}</span>
     </div>
     <div>
       <MyNumberInput
@@ -36,11 +36,11 @@ const numberInputValue = ref(0);
 </script>
 
 <style scoped lang="scss">
-section div {
-  padding: 5px;
+section {
+  padding: 0 20%;
 }
 
-pre {
-  overflow: scroll;
+section div {
+  padding: 5px;
 }
 </style>

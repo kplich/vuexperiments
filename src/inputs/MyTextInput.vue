@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper-main">
+  <div class="wrapper-main" @click.stop="$emit('click', $event)">
     <div class="" :class="['wrapper-intermediate', intermediateWrapperClass]">
       <MyInputLabel v-if="labelText" :text="labelText" v-bind:for="$attrs.id" />
       <input
@@ -41,6 +41,7 @@ interface Props {
 
 interface Emits {
   (e: "update:inputState", value: InputState<string>): void;
+  (e: "click", value: MouseEvent): void;
 }
 
 const props = withDefaults(defineProps<Props>(), {
