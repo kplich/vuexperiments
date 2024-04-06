@@ -16,7 +16,7 @@
       :class="[finalHorizontalPosition, finalVerticalPosition]"
       v-click-outside="hideContent"
     >
-      <slot name="content" v-bind:hide="hideContent" />
+      <slot name="content" :hide="hideContent" />
     </div>
   </div>
 </template>
@@ -116,7 +116,6 @@ function getNewVerticalPosition(): VerticalPosition | undefined {
 }
 
 function showContent(callback?: (() => void) | (() => Promise<void>)) {
-  console.log("showing content!");
   if (!props.disabled) {
     contentVisible.value = true;
     if (callback && typeof callback === "function") {
@@ -127,7 +126,6 @@ function showContent(callback?: (() => void) | (() => Promise<void>)) {
 
 function hideContent(callback?: (() => void) | (() => Promise<void>)) {
   if (contentVisible.value) {
-    console.log("hiding content!");
     contentVisible.value = false;
     if (callback && typeof callback === "function") {
       callback();

@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 interface Props {
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 interface Emits {
