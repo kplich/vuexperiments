@@ -17,6 +17,13 @@
         <MyTextInput v-model:input-state="inputState" @click="() => show()" />
       </template>
     </VSelectSingle>
+    <VSeparator />
+    <h2>Multiple selection</h2>
+    <VSelectMultiple :options="options" v-model="selectedMultiple">
+      <template v-slot:selected="{ show, selected }">
+        <VButton @click.stop="show"> Show ({{ selected.length }}) </VButton>
+      </template>
+    </VSelectMultiple>
   </section>
 </template>
 
@@ -27,6 +34,8 @@ import VSelectSingle from "@/selects/VSelectSingle.vue";
 import type { SelectionOption } from "@/selects/SelectionOption";
 import MyTextInput from "@/inputs/MyTextInput.vue";
 import { useInput } from "@/inputs/InputUtils";
+import VSelectMultiple from "@/selects/VSelectMultiple.vue";
+import VButton from "@/common/VButton.vue";
 
 const options: SelectionOption<string>[] = [
   {
@@ -53,6 +62,7 @@ const filteredOptions = computed(() => {
 
 const selectedPlain = ref<SelectionOption<string>>(options[0]);
 const selectedWithTextInput = ref<SelectionOption<string>>(options[0]);
+const selectedMultiple = ref<Array<SelectionOption<string>>>([]);
 
 const inputState = useInput<string>("select-input", selectedPlain.value.value);
 
