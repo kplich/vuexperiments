@@ -101,7 +101,6 @@
             <MyTextInput
               v-model:input-state="selectedWordInputState"
               @click="() => show()"
-              @blur="resetInputValue"
             />
           </template>
         </VSelectSingle>
@@ -236,10 +235,6 @@ const filteredWordsOptions = computed(() => {
 
 function updateInputState(option: SelectionOption<string>) {
   selectedWordInputState.value.inputValue = option.value;
-}
-
-function resetInputValue() {
-  selectedWordInputState.value.inputValue = selectedWordOption.value.value;
 }
 
 // multiple selection
