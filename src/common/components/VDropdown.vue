@@ -53,6 +53,7 @@ const finalHorizontalPosition = ref<HorizontalPosition>(
 );
 const finalVerticalPosition = ref<VerticalPosition>(props.verticalPosition);
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function onUpdated() {
   if (contentVisible.value) {
     // recalculate the positions of the dropdown when it's being shown
