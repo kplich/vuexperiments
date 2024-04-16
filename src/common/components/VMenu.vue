@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import VCard from "@/common/VCard.vue";
+import VCard from "@/common/components/VCard.vue";
 
 /**
  * A container for a list of options (MenuItems).

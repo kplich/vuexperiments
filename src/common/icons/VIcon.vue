@@ -9,7 +9,7 @@
     <slot />
   </svg>
 </template>
-<style lang="scss">
+<style scoped lang="scss">
 svg.v-icon {
   color: var(--color-text);
   fill: var(--color-text);

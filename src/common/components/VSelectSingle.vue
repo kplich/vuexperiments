@@ -31,7 +31,11 @@
             v-if="displayCheckmark"
             :checked="opt.value === selected.value"
           />
-          <Component v-else-if="selected.icon" :is="opt.icon" />
+          <Component
+            v-else-if="selected.icon"
+            :is="opt.icon"
+            class="menu-icon"
+          />
           <span class="label-dropdown">{{ opt.label }}</span>
         </VMenuItem>
       </VMenu>
@@ -39,12 +43,12 @@
   </VDropdown>
 </template>
 <script setup lang="ts" generic="T">
-import VDropdown from "@/dropdowns/VDropdown.vue";
-import VMenu from "@/dropdowns/VMenu.vue";
-import VMenuItem from "@/dropdowns/VMenuItem.vue";
-import RadioIcon from "@/common/icons/RadioIcon.vue";
-import ChevronIcon from "@/common/icons/ChevronIcon.vue";
-import type { SelectionOption } from "@/selects/SelectionOption";
+import VDropdown from "@/common/components/VDropdown.vue";
+import VMenu from "@/common/components/VMenu.vue";
+import VMenuItem from "@/common/components/VMenuItem.vue";
+import RadioIcon from "@/common/icons/VIconRadio.vue";
+import ChevronIcon from "@/common/icons/VIconChevron.vue";
+import type { SelectionOption } from "@/common/components/SelectionOption";
 
 interface Props {
   options: Array<SelectionOption<T>>;
@@ -85,10 +89,14 @@ const selected = defineModel<SelectionOption<T>>({ required: true });
     pointer-events: none;
     border: 1px solid lightgray;
     color: lightgray;
+  }
+}
 
-    .component-icon {
-      fill: lightgray;
-    }
+.option:active {
+  .menu-icon {
+    color: var(--color-text-contrast);
+    fill: var(--color-text-contrast);
+    stroke: var(--color-text-contrast);
   }
 }
 

@@ -27,10 +27,10 @@
   </VDropdown>
 </template>
 <script setup generic="T" lang="ts">
-import type { SelectionOption } from "@/selects/SelectionOption";
-import VDropdown from "@/dropdowns/VDropdown.vue";
-import VMenu from "@/dropdowns/VMenu.vue";
-import VMenuItem from "@/dropdowns/VMenuItem.vue";
+import type { SelectionOption } from "@/common/components/SelectionOption";
+import VDropdown from "@/common/components/VDropdown.vue";
+import VMenu from "@/common/components/VMenu.vue";
+import VMenuItem from "@/common/components/VMenuItem.vue";
 
 const props = withDefaults(
   defineProps<{

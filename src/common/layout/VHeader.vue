@@ -3,11 +3,10 @@
     <h1>Vuexperiments</h1>
     <nav>
       <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/dropdowns">Dropdowns</RouterLink>
+      <RouterLink to="/menus">Menus & selections</RouterLink>
       <RouterLink to="/modals">Modals</RouterLink>
       <RouterLink to="/complex-modals">Complex modals</RouterLink>
       <RouterLink to="/inputs">Inputs</RouterLink>
-      <RouterLink to="/selects">Selects</RouterLink>
       <RouterLink to="/svg">SVG</RouterLink>
       <RouterLink to="/drag-and-drop">Drag and drop</RouterLink>
       <RouterLink to="/infinite-scroll">Infinite scroll</RouterLink>

@@ -4,14 +4,13 @@ import {
   type RouteRecordRaw,
 } from "vue-router";
 import HomePage from "@/home/HomePage.vue";
-import DropdownPage from "@/dropdowns/DropdownPage.vue";
 import MyModalPage from "@/modals/MyModalPage.vue";
 import MyComplexModalPage from "@/complex-modals/MyComplexModalPage.vue";
 import MyInputPage from "@/inputs/MyInputPage.vue";
-import MySelectPage from "@/selects/MySelectPage.vue";
 import SvgPage from "@/svg/SvgPage.vue";
 import DragAndDropPage from "@/drag-and-drop/DragAndDropPage.vue";
 import InfiniteScrollPage from "@/infinite-scroll/InfiniteScrollPage.vue";
+import MenusPage from "@/menus/MenusPage.vue";
 
 function createSimpleRoute(name: string, component: any): RouteRecordRaw {
   return {
@@ -32,9 +31,9 @@ export const router = createRouter({
       component: HomePage,
     },
     {
-      path: "/dropdowns",
-      name: "dropdowns",
-      component: DropdownPage,
+      path: "/menus",
+      name: "menus",
+      component: MenusPage,
     },
     {
       path: "/modals",
@@ -50,11 +49,6 @@ export const router = createRouter({
       path: "/inputs",
       name: "inputs",
       component: MyInputPage,
-    },
-    {
-      path: "/selects",
-      name: "selects",
-      component: MySelectPage,
     },
     {
       path: "/svg",
