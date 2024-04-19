@@ -11,6 +11,7 @@ import SvgPage from "@/svg/SvgPage.vue";
 import DragAndDropPage from "@/drag-and-drop/DragAndDropPage.vue";
 import InfiniteScrollPage from "@/infinite-scroll/InfiniteScrollPage.vue";
 import MenusPage from "@/menus/MenusPage.vue";
+import IconsPage from "@/icons/IconsPage.vue";
 
 function createSimpleRoute(name: string, component: any): RouteRecordRaw {
   return {
@@ -59,6 +60,11 @@ export const router = createRouter({
       path: "/drag-and-drop",
       name: "drag-and-drop",
       component: DragAndDropPage,
+    },
+    {
+      path: "/icons",
+      name: "icons",
+      component: IconsPage,
     },
     createSimpleRoute(INFINITE_SCROLL, InfiniteScrollPage),
   ],

@@ -10,7 +10,7 @@
 .button {
   padding: 8px;
   border-radius: 8px;
-  border: 1px solid hsla(160, 100%, 37%, 1);
+  border: 1px solid var(--green);
   background: var(--color-background-soft);
   color: var(--color-text);
 

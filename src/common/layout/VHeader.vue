@@ -10,6 +10,7 @@
       <RouterLink to="/svg">SVG</RouterLink>
       <RouterLink to="/drag-and-drop">Drag and drop</RouterLink>
       <RouterLink to="/infinite-scroll">Infinite scroll</RouterLink>
+      <RouterLink to="/icons">Icons</RouterLink>
     </nav>
   </header>
 </template>
