@@ -7,7 +7,6 @@ import HomePage from "@/home/HomePage.vue";
 import MyModalPage from "@/modals/MyModalPage.vue";
 import MyComplexModalPage from "@/complex-modals/MyComplexModalPage.vue";
 import MyInputPage from "@/inputs/MyInputPage.vue";
-import SvgPage from "@/svg/SvgPage.vue";
 import DragAndDropPage from "@/drag-and-drop/DragAndDropPage.vue";
 import InfiniteScrollPage from "@/infinite-scroll/InfiniteScrollPage.vue";
 import MenusPage from "@/menus/MenusPage.vue";
@@ -50,11 +49,6 @@ export const router = createRouter({
       path: "/inputs",
       name: "inputs",
       component: MyInputPage,
-    },
-    {
-      path: "/svg",
-      name: "svg",
-      component: SvgPage,
     },
     {
       path: "/drag-and-drop",

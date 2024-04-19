@@ -7,7 +7,6 @@
       <RouterLink to="/modals">Modals</RouterLink>
       <RouterLink to="/complex-modals">Complex modals</RouterLink>
       <RouterLink to="/inputs">Inputs</RouterLink>
-      <RouterLink to="/svg">SVG</RouterLink>
       <RouterLink to="/drag-and-drop">Drag and drop</RouterLink>
       <RouterLink to="/infinite-scroll">Infinite scroll</RouterLink>
       <RouterLink to="/icons">Icons</RouterLink>
